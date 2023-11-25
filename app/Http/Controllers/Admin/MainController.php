@@ -13,6 +13,9 @@ class MainController extends Controller
      */
     public function index()
     {
-        echo'Admin'
+
+        return view('admin.home',[
+            'title'=> 'Trang Admin'
+        ]);
     }
 }

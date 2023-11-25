@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -28,7 +28,8 @@ class LoginController extends Controller
         // Xác thực và kiểm tra dữ liệu đầu vào
         $this->validate($request, [
             'email' => 'required|email:filter',
-            'password' => 'required'
+            'password' => 'required',
+          
         ]);
 
         // Thực hiện đăng nhập với thông tin người dùng
@@ -36,11 +37,17 @@ class LoginController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password')
         ], $request->input('remember'))) {
-            // Nếu đăng nhập thành công, chuyển hướng đến trang admin
+            // Nếu đăng nhập thành công thông báo
+            Session::flash('success', 'Đăng nhập thành công');
+
+            // chuyển hướng đến trang admin
             return redirect()->route('admin');
         }
 
-        // Nếu đăng nhập thất bại, chuyển hướng về trang trước đó
+        // Nếu đăng nhập thất bại thông báo
+        Session::flash('error', 'Email hoặc password không chính xác');
+
+        // chuyển hướng về trang trước đó
         return redirect()->back();
     }
 }

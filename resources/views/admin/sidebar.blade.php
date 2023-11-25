@@ -44,13 +44,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="admin/menus/add" class="nav-link">
+                <a href="add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thêm Danh Mục</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin/menus/list" class="nav-link">
+                <a href="list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh Sách Danh Mục</p>
                 </a>

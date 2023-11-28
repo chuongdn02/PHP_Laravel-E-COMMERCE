@@ -8,3 +8,4 @@
 <script src="/template/admin/js/main.js"></script>
 
 @yield('footer')
+

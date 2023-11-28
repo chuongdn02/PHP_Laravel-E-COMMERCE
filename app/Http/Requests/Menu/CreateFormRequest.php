@@ -8,8 +8,10 @@ class CreateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,18 +19,19 @@ class CreateFormRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name'=>'required'
+            'name' => 'required'
         ];
     }
-    public function messages(): array
+
+    public function messages() : array
     {
         return [
-            'name.required'=>'vui lòng nhập tên danh mục'
+            'name.required' => 'Vui lòng nhập tên Danh Mục'
         ];
     }
 }

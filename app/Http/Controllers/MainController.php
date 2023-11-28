@@ -20,16 +20,26 @@ class MainController extends Controller
         $this->menu = $menu;
         $this->product = $product;
     }
-
     public function index()
     {
-        return view('home', [
-            'title' => 'Shop Nước Hoa ABC',
-            'sliders' => $this->slider->show(),
-            'menus' => $this->menu->show(),
-            'products' => $this->product->get()
-        ]);
+    return view('home', [
+        'title' => 'Shop Phone',
+        'sliders' => $this->slider->show(),
+        'menus' => $this->menu->show(), // Make sure $this->menu->show() returns the correct data
+        'products' => $this->product->get()
+    ]);
     }
+
+
+    // public function index()
+    // {
+    //     return view('home', [
+    //         'title' => 'Shop Phone',
+    //         'sliders' => $this->slider->show(),
+    //         'menus' => $this->menu->show(),
+    //         'products' => $this->product->get()
+    //     ]);
+    // }
 
     public function loadProduct(Request $request)
     {
